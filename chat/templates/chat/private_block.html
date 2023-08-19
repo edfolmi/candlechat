@@ -1,0 +1,22 @@
+{% extends 'chat/base.html' %}
+
+{% load static %}
+
+{% block title %}Block detail{% endblock %}
+
+{% block content %}
+    <div class="block-wall">
+        <div class="block-wall-inner">
+            <h2>Private Chat</h2>
+            <div class="messages">
+                <div id="privateBlockContainer"></div>
+            </div>
+            <div class="message-input-container">
+                <input type="text" id="privateBlockMessageInput" class="message-input">
+                <a type="submit" id="privateBlockMessageSend" class="message-btn"><i class="fa-solid fa-square-arrow-up-right"></i></a>
+            </div>
+        </div>
+    </div>
+    {{ request.user.id|json_script:"current_user_id" }}
+    <script src="{% static 'js/privateblock.js' %}"></script>
+{% endblock %}

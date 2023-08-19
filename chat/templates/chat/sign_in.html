@@ -1,0 +1,18 @@
+{% extends 'chat/base.html' %}
+
+{% load static %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block content %}
+    <div class="formContainer">
+        <form action="" method="post">
+            {% csrf_token %}
+    
+            {{ form }}
+
+        </form>
+    </div>
+    
+
+{% endblock %}
