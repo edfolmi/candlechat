@@ -1,0 +1,11 @@
+<div>
+    <canvas id="blockChart"></canvas>
+</div>
+
+{{ blockchart.0.name|json_script:"first_block" }}
+{{ blockchart.0.online|json_script:"first_block_online" }}
+
+{{ blockchart.1.name|json_script:"second_block" }}
+{{ blockchart.1.online|json_script:"second_block_online" }}
+
+

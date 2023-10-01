@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chat.apps.ChatConfig',
+    'customadmin.apps.CustomadminConfig',
     'rest_framework',
     'rest_framework.authtoken',
 ]
@@ -69,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'customadmin.context_processors.blocks_chart',
             ],
         },
     },
@@ -153,6 +155,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIR = [
     BASE_DIR / 'static'
 ]
+#STATIC_ROOT = BASE_DIR / 'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
