@@ -149,12 +149,22 @@ body {
         padding: 10px 0 10px 0;
     }
 
+    .desk-display {
+        display: none;
+    }
+
     .logo {
         margin: 5px;
     }
 
+    .logo a {
+        color: #f1f1f1;
+        text-decoration: none;
+    }
+
     .logo h1 {
         color: #f1f1f1;
+
     }
     
     .sidebar-icon {
@@ -222,10 +232,15 @@ body {
         margin: 25px 10px;
     }
 
+    .sidebar .menus a {
+        text-decoration: none;
+    }
+
     .sidebar .menus p {
         padding: 15px 5px;
         margin-right: 10px;   
         border-bottom: 1px solid #f1f1f1;
+        color: #f1f1f1;
     }
 
     .sidebar .settings {
@@ -446,7 +461,7 @@ body {
         margin: 5px 5px 5px 40%;
         font-family: var(--font-tertiary);
     }
-    
+
     .other_user {
         text-align: start;
         background-color: var(--opponent-color);
@@ -455,21 +470,59 @@ body {
         margin: 5px 40% 5px 5px;
         font-family: var(--font-tertiary);
     }
-    
+
     .connection {
         background: transparent;
         text-align: center;
         font-size: 10px;
         font-family: var(--font-tertiary);
     }
+
+    .action-btn {
+        padding: 10px;
+        border-radius: 25px;
+        border: 2px solid var(--secondary-color);
+        color: #f1f1f1;
+    }
+
+    .action-btn:hover {
+        background-color: #32D79A;
+        color: #f1f1f1;
+    }
+
+    .list-content {
+        text-align: center;
+    }
+
+    .list-content a {
+        text-decoration: none;
+        color: #f1f1f1;
+        font-size: x-large;
+    }
 }
 
 
 @media (min-width:768px) and (max-width:991px) {
+    .dashboard {
+        display: none;
+    }
 
+    .desk-display {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 }
 
-@media (min-width:992) {
+@media (min-width:992px) {
+    .dashboard {
+        display: none;
+    }
 
+    .desk-display {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 }
 

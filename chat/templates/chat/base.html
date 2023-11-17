@@ -43,7 +43,7 @@
                 <p></p>
             </div>
             <div class="logo">
-                <h1>Candlechat</h1>
+                <a href="{% url 'dashboard' %}"><h1>Candlechat</h1></a>
             </div>
         </header>
 
@@ -52,11 +52,19 @@
                 <a></a>
             </div>
             <div class="menus">
-                <p>Group Block</p>
+                <a href="{% url 'blocks' %}"><p>Group Block</p></a>
 
-                <p>Private Blocks</p>
+                <a href="{% url 'users' %}"><p>Private Blocks</p></a>
 
-                <p>AI Assistant</p>
+                <p>AI ( soon )</p>
+
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'sign_out' %}"><p>Sign Out</p></a>
+                {% else %}
+                <a href="{% url 'sign_in' %}"><p>Sign In</p></a>
+
+                <a href="{% url 'sign_up' %}"><p>Sign Up</p></a>
+                {% endif %}
             </div>
             <div class="settings">
                 <span>

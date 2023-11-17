@@ -11,8 +11,12 @@
     
             <label for="">{{ form.username.label }}</label>
             {{ form.username }}
-            {{ form.username.errors }}
-    
+            {% if form.username.errors %}
+                {% for error in form.username.errors %}
+                    {{ error }}
+                {% endfor %}
+            {% endif %}
+
             <label for="">{{ form.email.label }}</label>
             {{ form.email }}
             {{ form.email.errors }}
@@ -25,10 +29,8 @@
             {{ form.password2 }}
             {{ form.password2.errors }}
             <small>{{ form.password2.help_text }}</small>
-    
-    
+
+            <button type="submit" class="action-btn">Sign Up</button>
         </form>
     </div>
-    
-
 {% endblock %}

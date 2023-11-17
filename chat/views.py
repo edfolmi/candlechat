@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
-from django.http import Http404, HttpResponse
+from django.http import Http404
 from django.core.exceptions import ValidationError
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 
 from rest_framework import status
 from rest_framework.views import APIView
@@ -14,41 +14,64 @@ from .models import Block, GroupBlock, PrivateBlock
 
 from .serializers import GroupBlockSerializer, PrivateBlockSerializer
 
-from .decorators import only_authenticated
+from .decorators import only_unauthenticated
 
-from .forms import SignUpForm
+from .forms import SignUpForm, SignInForm
 # Create your views here.
 
 
+# === Sign Up ===
+@only_unauthenticated
 def sign_up(request):
     if request.POST:
         form = SignUpForm(request.POST)
 
         if form.is_valid():
             form.save()
-        return HttpResponse('form is not valid!')
+            return redirect('sign_in')
+        return redirect('sign_up')
     else:
         form = SignUpForm()
 
         return render(request, 'chat/sign_up.html', {'form': form})
 
 
+# === Sign In ===
+@only_unauthenticated
 def sign_in(request):
     if request.POST:
-        form = AuthenticationForm(request.POST)
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        form = SignInForm(request.POST)
+        print(form)
 
-        user = authenticate(username=username, password=password)
         if form.is_valid():
-            login(request, user)
-            return redirect('')
+            print('This form is not even valid')
+            try:
+                username = form.cleaned_data['username']
+                password = form.cleaned_data['password']
+
+                user = authenticate(username=username, password=password)
+                login(request, user)
+                return redirect('dashboard')
+            except Exception as e:
+                print(e)
+                return redirect('sign_in')
+        else:
+            return redirect('sign_in')
     else:
-        form = AuthenticationForm()
+        form = SignInForm()
 
         return render(request, 'chat/sign_in.html', {'form': form})
 
 
+# === Sign Out ===
+def sign_out(request):
+    logout(request)
+
+    return redirect('sign_in')
+
+
+# === Dashboard ===
+@login_required
 def dashboard(request):
 
     return render(request, 'chat/dashboard.html')
@@ -73,7 +96,7 @@ def candlechat_users(request):
 
 
 # === Group Block view === 
-@only_authenticated
+@login_required
 def group_block(request, slug):
     detail = get_object_or_404(Block, slug=slug)
 
@@ -84,7 +107,7 @@ def group_block(request, slug):
 
 
 # === Private Block view ===
-@only_authenticated
+@login_required
 def private_block(request, other_user_id):
 
     return render(request, 'chat/private_block.html')

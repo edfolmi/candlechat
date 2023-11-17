@@ -1,4 +1,11 @@
+.env
 chatenv
 note.py
 note.html
 htmlcov
+.coveragerc
+.coverage
+test.html
+**/migrations/**
+**/__pycache__/**
+!**/migrations/__init__.py
