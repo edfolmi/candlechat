@@ -42,32 +42,35 @@ This section include list of major frameworks/libraries used to bootstrap this p
 This is an example of how you will set up this project locally.
 To get a local copy up and running follow these simple example steps.
 
+
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+You need to utilize redis tool as message broker, you can simply get redis tool in docker.
+- Install docker desktop.
+- run redis from the terminal.
+
+* pip
   ```sh
-  pip install -r requirements.txt
+  docker run redis
   ```
 
 ### Installation
 
 _Below is an example of how you can set up this app. <!-- This template doesn't rely on any external dependencies or services._ -->
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/edfolmi/candlechat.git
    ```
-3. Install Django packages
+2. Install Django packages
    ```sh
    pip install -r requirements.txt
    ```
-4. Create a .env file in projects folder, Enter your SECRET KEY in `.env`
+3. Create a .env file in projects folder, Enter your SECRET KEY in `.env`
    ```js
    SECRET_KEY=<ENTER YOUR API>;
    ```
-5. Run Django project
+4. Run Django project
    ```sh
    python manage.py runserver
    ```
