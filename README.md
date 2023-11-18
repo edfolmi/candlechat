@@ -67,5 +67,9 @@ _Below is an example of how you can set up this app. <!-- This template doesn't 
    ```js
    SECRET_KEY=<ENTER YOUR API>;
    ```
+5. Run Django project
+   ```sh
+   python manage.py runserver
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
