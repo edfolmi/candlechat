@@ -49,7 +49,7 @@ You need to utilize redis tool as message broker, you can simply get redis tool 
 - Install docker desktop.
 - run redis from the terminal.
 
-* pip
+* docker
   ```sh
   docker run --name some-redis -d redis
   ```
