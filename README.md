@@ -51,7 +51,7 @@ You need to utilize redis tool as message broker, you can simply get redis tool 
 
 * pip
   ```sh
-  docker run redis
+  docker run --name some-redis -d redis
   ```
 
 ### Installation
