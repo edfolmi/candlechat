@@ -1,0 +1,29 @@
+{% extends 'chat/base.html' %}
+
+{% load static %}
+
+{% block title %}Block detail{% endblock %}
+
+{% block content %}
+    <div class="block-wall">
+        <div class="block-wall-inner">
+            <h2>{{ detail }}</h2>
+            <div class="messages">
+                <div id="groupBlockContainer"></div>
+            </div>
+            
+            <div class="message-input-container">
+                <input type="text" id="groupBlockMessageInput" class="message-input">
+                <a type="submit" id="groupBlockMessageSend" class="message-btn"><i class="fa-solid fa-square-arrow-up-right"></i></a>
+            </div>
+        </div>
+        <div style="display: none;">
+            <label for="groupBlockOnlineUsers">Block Online Users</label>
+            <select multiple id="groupBlockOnlineUsers"></select>
+        </div>
+    </div>
+    
+    {{ request.user.id|json_script:"current_user_id" }}
+    {{ detail.slug|json_script:"blockSlug" }}
+    <script src="{% static 'js/groupblock.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'chat/base.html' %}
+
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <div class="desk-display">
+        <h2>ONLY MOBILE VIEW IS AVAILABLE 😂 <br>DESKTOP AND TABLET UNDER CONSTRUCTION;</h2>
+    </div>
+    <div class="dashboard">
+
+        <div class="dashboard-heading">
+            <i class="fa-solid fa-users-rectangle"></i>
+            <h2>Group Blocks</h2>
+        </div>
+
+        <div class="blocks">
+            <div class="block">
+                <b>Backend - 44</b>
+                <i class="fa-solid fa-circle"></i>
+            </div>
+            <div class="view-all"><a href="">view all</a></div>
+        </div>
+
+        <div class="dashboard-heading">
+            <i class="fa-solid fa-user"></i>
+            <h2>Private Blocks</h2>
+        </div>
+
+        <div class="blocks">
+            <div class="block">
+                <b>edfolmi</b>
+                <i class="fa-solid fa-circle"></i>
+            </div>
+            <div class="view-all"><a href="">view all</a></div>
+        </div>
+
+        <div class="dashboard-heading">
+            <i class="fa-solid fa-robot"></i>
+            <h2>AI Assistant</h2>
+            <h6>( soon )</h6>
+        </div>
+
+        <div class="assistants">
+            
+            <div class="assistant">
+                <a>
+                    <i class="fa-solid fa-cookie-bite"></i>
+                    <b>Diet Plan</b>
+                    <p>Create meal plans and diets based on your preferances</p>
+                </a>
+            </div>
+            <div class="assistant">
+                <a>
+                    <i class="fa-solid fa-kitchen-set"></i>
+                    <b>Food Recipes</b>
+                    <p>Get any cooking recipes for food dishes</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}

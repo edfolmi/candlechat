@@ -1,0 +1,13 @@
+{% extends 'chat/base.html' %}
+
+{% block title %}Blocks{% endblock %}
+
+{% block content %}
+    <div class="list-content">
+        <div>
+            {% for block in blocks %}
+            <p><a href="{% url 'block_group' block.slug %}"><h2>{{ block }}</h2></a></p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
